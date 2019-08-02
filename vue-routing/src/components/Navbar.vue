@@ -28,8 +28,15 @@ export default {
 ul {
   list-style-type: none;
   padding: 0;
+  display:flex;
+  justify-content: center;
+
 }
 
+li {
+    padding-left: 1em;
+    margin:0;
+}
 a {
   color: #42b983;
 }
