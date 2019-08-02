@@ -17,7 +17,10 @@
         <div id="app">
             <h3>{{title}}</h3>
             <h4>my name is: {{name}}</h4>
-            <input type="text" v-model="name"/>
+            <button @click.alt="logMessage">alt-click me</button>
+            <button @click.shift="logMessage">shift-click me</button>
+            <a href="https://www.google.com" @click.prevent="logMessage">Google</a>
+            <a href="https://vuejs.org/v2/guide/events.html#Event-Modifiers">Event Modifiers</a>
         </div>
         <script src="app.js"></script>
     </body>
