@@ -2,21 +2,32 @@
 <template>
   <div id="app">
     <h1>{{title}}</h1>
-    <Navbar/>
+    <Navbar />
+    <AllMentors :mentors="mentors" />
+    <AvailableMentors :mentors="mentors" />
   </div>
 </template>
 
 <script>
-import Navbar from './Navbar'
-
+import Navbar from "./Navbar";
+import AllMentors from "./AllMentors";
+import AvailableMentors from "./AvailableMentors";
 export default {
   name: "app",
   components: {
-    Navbar
+    Navbar,
+    AvailableMentors,
+    AllMentors
   },
   data() {
     return {
-      title: "My first Vue app!"      
+      title: "My first Vue App",
+      mentors: [
+        { name: "Aljan", email: "agamaoaljan@gmail.com", availability:true },
+        { name: "Jon", email: "jonsnow@gmail.com", availability:false },
+        { name: "Mike", email: "mikemiller@gmail.com", availability:true },
+        { name: "John", email: "johnsmith@gmail.com", availability:false }
+      ]
     };
   }
 };
@@ -40,7 +51,6 @@ h2 {
 ul {
   list-style-type: none;
   padding: 0;
-
 }
 
 li {
