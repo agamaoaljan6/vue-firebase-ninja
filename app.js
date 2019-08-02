@@ -2,14 +2,19 @@ new Vue({
     el: '#app',
     data: {
         title: "Vue Ninja",
-        wage: "10"
-    },
+        coords: {
+            x:0,
+            y:0
+        }
+    }, 
     methods: {
-        increaseWage() {
-            this.wage ++
+        logEvent(e) { // takes the event object as a parameter
+            console.log(e)
         },
-        decreaseWage() {
-            this.wage --
+        logCoords(e) {
+            this.coords.x = e.offsetX
+            this.coords.y = e.offsetY
         }
     }
+
 })
