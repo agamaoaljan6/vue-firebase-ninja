@@ -5,7 +5,7 @@
       <h2>
         <strong>{{post.title}}</strong>
       </h2>
-      <p>{{post.body}}</p>
+      <p>{{post.body | snippet}}</p>
     </div>
   </div>
 </template>
