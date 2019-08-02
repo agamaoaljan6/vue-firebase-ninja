@@ -1,15 +1,15 @@
 new Vue({
     el: '#app',
     data: {
-        title: "Hello World",
-        name: "Aljan", 
-        url: "https://www.facebook.com",
-        classes:['one', 'two']
-    }, 
+        title: "Vue Ninja",
+        wage: "10"
+    },
     methods: {
-        greet(time) {
-            return `Hello and good${time}, ${this.name}.`
-
+        increaseWage() {
+            this.wage ++
+        },
+        decreaseWage() {
+            this.wage --
         }
     }
 })
