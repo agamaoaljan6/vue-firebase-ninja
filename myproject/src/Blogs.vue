@@ -1,7 +1,8 @@
 <template>
   <div class="mentees">
     <h1>{{blogTitle}}</h1>
-    <div v-for="(post) in posts" :key="post.id">
+    <input type="text" v-model="searchTerm" />
+    <div v-for="(post) in filteredPosts" :key="post.id">
       <h2>
         <strong>{{post.title}}</strong>
       </h2>
@@ -17,17 +18,28 @@ export default {
   data() {
     return {
       blogTitle: "Blogs",
-      posts: []
+      posts: [],
+      searchTerm: ""
     };
   },
   methods: {},
+  computed: {
+    filteredPosts() {
+      return this.posts.filter(post => {
+        return post.title.match(this.searchTerm);
+      });
+    }
+  },
   created() {
-    axios.get("https://jsonplaceholder.typicode.com/posts").then(res => {
-      console.log(res);
-      this.posts = res.data;
-    }).catch(err =>{
-      console.log(err)
-    })
+    axios
+      .get("https://jsonplaceholder.typicode.com/posts")
+      .then(res => {
+        console.log(res);
+        this.posts = res.data;
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }
 };
 </script>
