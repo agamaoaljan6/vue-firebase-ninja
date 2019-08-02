@@ -2,11 +2,15 @@ new Vue({
     el: '#app',
     data: {
         title: "Vue Ninja",
-        name: "Aljan"
-    }, 
+        showName: true,
+        showAge: true
+    },
     methods: {
-        logMessage() {
-            console.log("hello")
+        toggleName() {
+            this.showName = !this.showName
+        },
+        toggleAge() {
+            this.showAge = !this.showAge
         }
     }
 
