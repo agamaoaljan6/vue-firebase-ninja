@@ -3,7 +3,7 @@
   <div id="app">
     <h1>{{title}}</h1>
     <Navbar />
-    <AllMentors :mentors="mentors" />
+    <AllMentors :mentors="mentors" @delete="deleteMentor" />
     <AvailableMentors :mentors="mentors" />
   </div>
 </template>
@@ -23,12 +23,22 @@ export default {
     return {
       title: "My first Vue App",
       mentors: [
-        { name: "Aljan", email: "agamaoaljan@gmail.com", availability:true },
-        { name: "Jon", email: "jonsnow@gmail.com", availability:false },
-        { name: "Mike", email: "mikemiller@gmail.com", availability:true },
-        { name: "John", email: "johnsmith@gmail.com", availability:false }
+        // I can fetch the mentors that i set up in firebase database in here
+        { name: "Aljan", email: "agamaoaljan@gmail.com", availability: true },
+        { name: "Jon", email: "jonsnow@gmail.com", availability: false },
+        { name: "Mike", email: "mikemiller@gmail.com", availability: true },
+        { name: "John", email: "johnsmith@gmail.com", availability: false }
       ]
     };
+  },
+  methods: {
+    deleteMentor(payload) {
+      // naming convention payload
+      // console.log(payload)
+      this.mentors = this.mentors.filter(mentor => {
+        return mentor.name !== payload.name
+      })
+    }
   }
 };
 </script>
